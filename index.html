@@ -96,28 +96,30 @@
       position: absolute; inset: 0;
       width: 100%; height: 100%;
       object-fit: cover;
-      object-position: left center;
+      object-position: 18% center;
+      filter: brightness(0.88) contrast(0.96);
     }
-    /* Overlay: clear on left (face visible), dark on right (text area) */
+    /* Left vignette: softens face so it blends into dark bg */
     .hero-overlay {
       position: absolute; inset: 0;
       background: linear-gradient(
         to right,
-        rgba(12,12,12,0.00)  0%,
-        rgba(12,12,12,0.00) 36%,
+        rgba(12,12,12,0.55)  0%,
+        rgba(12,12,12,0.20) 22%,
+        rgba(12,12,12,0.00) 38%,
         rgba(12,12,12,0.55) 50%,
         rgba(12,12,12,0.92) 60%,
         rgba(12,12,12,0.96) 100%
       );
     }
-    /* Also a subtle bottom fade for overall depth */
+    /* Bottom fade */
     .hero-overlay::after {
       content: '';
       position: absolute; inset: 0;
       background: linear-gradient(
         to top,
-        rgba(12,12,12,0.60) 0%,
-        transparent 30%
+        rgba(12,12,12,0.65) 0%,
+        transparent 28%
       );
     }
     /* Text panel: right half of screen */
@@ -658,7 +660,7 @@
        NAVIGATION
   ══════════════════════════════════════ -->
   <nav id="nav">
-    <a href="#hero" class="nav-logo">Marek Brandys</a>
+    <a href="#hero" class="nav-logo" aria-label="Marek Brandys"></a>
     <ul class="nav-links">
       <li><a href="#work">Work</a></li>
       <li><a href="#studio">Studio</a></li>
