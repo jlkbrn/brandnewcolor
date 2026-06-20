@@ -96,17 +96,17 @@
       position: absolute; inset: 0;
       width: 100%; height: 100%;
       object-fit: cover;
-      object-position: 18% center;
-      filter: brightness(0.88) contrast(0.96);
+      object-position: left center;
+      transform: scale(0.72);
+      transform-origin: center center;
     }
-    /* Left vignette: softens face so it blends into dark bg */
+    /* Overlay: clear on left (face), dark on right (text) */
     .hero-overlay {
       position: absolute; inset: 0;
       background: linear-gradient(
         to right,
-        rgba(12,12,12,0.55)  0%,
-        rgba(12,12,12,0.20) 22%,
-        rgba(12,12,12,0.00) 38%,
+        rgba(12,12,12,0.00)  0%,
+        rgba(12,12,12,0.00) 36%,
         rgba(12,12,12,0.55) 50%,
         rgba(12,12,12,0.92) 60%,
         rgba(12,12,12,0.96) 100%
@@ -118,8 +118,8 @@
       position: absolute; inset: 0;
       background: linear-gradient(
         to top,
-        rgba(12,12,12,0.65) 0%,
-        transparent 28%
+        rgba(12,12,12,0.60) 0%,
+        transparent 30%
       );
     }
     /* Text panel: right half of screen */
