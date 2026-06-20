@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marek Brandys — Colorist &amp; Post Production Specialist</title>
+  <meta name="description" content="Marek Brandys — Senior Colorist and Post Production Specialist. 25+ years of experience in feature films, documentaries, premium entertainment and television.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #0C0C0C;
+      --surface: #111111;
+      --card:    #181818;
+      --border:  #222222;
+      --accent:  #C8A96E;
+      --white:   #EDEBE6;
+      --lgrey:   #888888;
+      --grey:    #444444;
+      --font:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: var(--font);
+      font-weight: 300;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; }
+
+    /* ════════════════════════════════════════════════
+       NAVIGATION
+    ════════════════════════════════════════════════ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 200;
+      height: 64px;
+      padding: 0 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.5s ease, border-color 0.5s ease;
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled {
+      background: rgba(12,12,12,0.94);
+      border-color: var(--border);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .nav-logo {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--white);
+    }
+    .nav-links {
+      display: flex;
+      gap: 44px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 10.5px;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--lgrey);
+      transition: color 0.25s;
+    }
+    .nav-links a:hover { color: var(--white); }
+
+    /* ════════════════════════════════════════════════
+       HERO
+    ════════════════════════════════════════════════ */
+    #hero {
+      position: relative;
+      height: 100vh;
+      min-height: 700px;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: left center;
+    }
+    /* Overlay: clear on left (face visible), dark on right (text area) */
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        to right,
+        rgba(12,12,12,0.00)  0%,
+        rgba(12,12,12,0.00) 36%,
+        rgba(12,12,12,0.55) 50%,
+        rgba(12,12,12,0.92) 60%,
+        rgba(12,12,12,0.96) 100%
+      );
+    }
+    /* Also a subtle bottom fade for overall depth */
+    .hero-overlay::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(12,12,12,0.60) 0%,
+        transparent 30%
+      );
+    }
+    /* Text panel: right half of screen */
+    .hero-content {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 55%;
+      right: 72px;
+      max-width: 480px;
+    }
+    .hero-rule {
+      width: 48px; height: 1px;
+      background: var(--accent);
+      margin-bottom: 32px;
+    }
+    .hero-content h1 {
+      font-size: clamp(42px, 5.5vw, 82px);
+      font-weight: 200;
+      letter-spacing: 0.10em;
+      line-height: 0.92;
+      margin-bottom: 28px;
+    }
+    .hero-content h1 em {
+      font-style: normal;
+      font-weight: 300;
+      color: var(--accent);
+    }
+    .hero-divider {
+      width: 48px; height: 1px;
+      background: rgba(200,169,110,0.4);
+      margin-bottom: 20px;
+    }
+    .hero-subtitle {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.10em;
+      color: var(--lgrey);
+      margin-bottom: 18px;
+    }
+    .hero-discs {
+      font-size: 9.5px;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-bottom: 10px;
+    }
+    .hero-years {
+      font-size: 9.5px;
+      letter-spacing: 0.12em;
+      color: var(--grey);
+      margin-bottom: 48px;
+    }
+    .btn-showreel {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.28);
+      padding: 15px 30px;
+      cursor: pointer;
+      transition: border-color 0.3s, color 0.3s;
+      font-family: var(--font);
+      text-decoration: none;
+    }
+    .btn-showreel:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .play-tri {
+      width: 0; height: 0;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      border-left: 9px solid currentColor;
+    }
+
+    /* ════════════════════════════════════════════════
+       SHOWREEL MODAL
+    ════════════════════════════════════════════════ */
+    .modal-overlay {
+      display: none;
+      position: fixed; inset: 0;
+      z-index: 900;
+      background: rgba(0,0,0,0.96);
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-box {
+      position: relative;
+      width: min(92vw, 1200px);
+    }
+    .modal-ratio {
+      position: relative;
+      padding-top: 56.25%;
+    }
+    .modal-ratio iframe {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+    .modal-close {
+      position: absolute;
+      top: -44px; right: 0;
+      background: none;
+      border: none;
+      color: var(--lgrey);
+      font-size: 11px;
+      font-family: var(--font);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      padding: 4px;
+      transition: color 0.2s;
+    }
+    .modal-close:hover { color: var(--white); }
+
+    /* ════════════════════════════════════════════════
+       SECTION SHARED
+    ════════════════════════════════════════════════ */
+    .s-pad { padding: 120px 80px; }
+
+    .s-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+    .s-rule {
+      width: 40px; height: 1px;
+      background: var(--accent);
+      margin-bottom: 48px;
+    }
+    h2.s-title {
+      font-size: clamp(30px, 3.2vw, 48px);
+      font-weight: 200;
+      letter-spacing: 0.06em;
+      line-height: 1.12;
+    }
+
+    /* reveal on scroll */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+    .reveal.in { opacity: 1; transform: none; }
+
+    /* ════════════════════════════════════════════════
+       ABOUT
+    ════════════════════════════════════════════════ */
+    #about {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 100px;
+      align-items: start;
+    }
+    .about-bio { color: var(--lgrey); }
+    .about-bio p { font-size: 15px; line-height: 1.85; margin-bottom: 20px; }
+    .about-bio p:last-child { margin-bottom: 0; }
+    .about-stats {
+      display: flex;
+      gap: 56px;
+      margin-top: 52px;
+      padding-top: 52px;
+      border-top: 1px solid var(--border);
+    }
+    .stat-num {
+      font-size: 52px;
+      font-weight: 200;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--lgrey);
+      margin-top: 8px;
+    }
+
+    /* ════════════════════════════════════════════════
+       CLIENTS
+    ════════════════════════════════════════════════ */
+    #clients {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .clients-wrap { display: grid; grid-template-columns: 300px 1fr; gap: 100px; }
+    .clients-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--border);
+      align-self: start;
+    }
+    .client-item {
+      background: var(--surface);
+      padding: 28px 32px;
+    }
+    .client-name {
+      font-size: 13.5px;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      color: var(--white);
+    }
+
+    /* ════════════════════════════════════════════════
+       SELECTED WORK
+    ════════════════════════════════════════════════ */
+    #work { padding: 120px 0; }
+    .work-head { padding: 0 80px 80px; }
+
+    .project { margin-bottom: 3px; }
+
+    /* Image strip */
+    .proj-img-wrap {
+      overflow: hidden;
+      position: relative;
+      line-height: 0;
+    }
+    .proj-img-wrap img {
+      width: 100%;
+      aspect-ratio: 21/9;
+      object-fit: cover;
+      transition: transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .project:hover .proj-img-wrap img { transform: scale(1.04); }
+
+    /* Dual image (two projects side by side) */
+    .proj-dual-imgs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px;
+    }
+    .proj-dual-imgs img {
+      aspect-ratio: 16/9;
+    }
+
+    /* Info bar */
+    .proj-info {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      align-items: end;
+      gap: 24px;
+      padding: 36px 80px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+    }
+    .proj-cat {
+      font-size: 9.5px;
+      font-weight: 500;
+      letter-spacing: 0.20em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .proj-title {
+      font-size: 22px;
+      font-weight: 300;
+      letter-spacing: 0.04em;
+    }
+    .proj-role {
+      font-size: 12px;
+      color: var(--lgrey);
+      margin-top: 7px;
+      letter-spacing: 0.02em;
+    }
+    .proj-desc {
+      font-size: 13px;
+      line-height: 1.75;
+      color: var(--lgrey);
+    }
+    .proj-meta {
+      text-align: right;
+      font-size: 10.5px;
+      color: var(--grey);
+      letter-spacing: 0.10em;
+    }
+
+    /* Dual project info */
+    .proj-dual-info {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+    }
+    .proj-dual-info .proj-half {
+      background: var(--surface);
+      padding: 36px 44px;
+    }
+
+    /* ════════════════════════════════════════════════
+       STUDIO
+    ════════════════════════════════════════════════ */
+    #studio {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .studio-imgs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px;
+    }
+    .studio-imgs .span2 { grid-column: 1 / -1; }
+    .studio-imgs img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+    }
+    .studio-imgs .span2 img { aspect-ratio: 21/9; }
+
+    .studio-info { padding-top: 8px; }
+    .studio-tools { margin-top: 44px; list-style: none; }
+    .studio-tools li {
+      display: flex;
+      gap: 14px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .tool-dot {
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+    .tool-name {
+      font-size: 13.5px;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .tool-desc {
+      font-size: 12px;
+      color: var(--lgrey);
+    }
+
+    /* ════════════════════════════════════════════════
+       EXPERIENCE
+    ════════════════════════════════════════════════ */
+    #experience {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .exp-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 72px;
+      margin-top: 72px;
+    }
+    .exp-col-head {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.20em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 28px;
+    }
+    .exp-big {
+      font-size: 80px;
+      font-weight: 200;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+    .exp-big-sub {
+      font-size: 12px;
+      color: var(--lgrey);
+      letter-spacing: 0.06em;
+    }
+    .exp-list { list-style: none; }
+    .exp-list li {
+      font-size: 13px;
+      color: var(--lgrey);
+      padding: 9px 0;
+      border-bottom: 1px solid var(--border);
+      letter-spacing: 0.02em;
+    }
+
+    /* ════════════════════════════════════════════════
+       EDUCATION
+    ════════════════════════════════════════════════ */
+    #education { background: var(--bg); }
+    .edu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px;
+      margin-top: 56px;
+    }
+    .edu-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 44px;
+    }
+    .edu-inst {
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    .edu-degree {
+      font-size: 12.5px;
+      color: var(--lgrey);
+      line-height: 1.65;
+    }
+    .edu-year {
+      font-size: 10px;
+      color: var(--grey);
+      letter-spacing: 0.12em;
+      margin-top: 18px;
+    }
+
+    /* ════════════════════════════════════════════════
+       CONTACT
+    ════════════════════════════════════════════════ */
+    #contact {
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-bg {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.10;
+      pointer-events: none;
+    }
+    .contact-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+    }
+    .contact-tagline {
+      font-size: 14px;
+      font-style: italic;
+      color: var(--lgrey);
+      margin-top: 28px;
+      letter-spacing: 0.02em;
+    }
+    .contact-links {
+      list-style: none;
+      margin-top: 56px;
+    }
+    .contact-links li {
+      display: flex;
+      align-items: baseline;
+      gap: 24px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .cl-key {
+      font-size: 9.5px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      flex-shrink: 0;
+      width: 88px;
+    }
+    .contact-links a {
+      font-size: 14px;
+      color: var(--white);
+      text-decoration: none;
+      transition: color 0.25s;
+    }
+    .contact-links a:hover { color: var(--accent); }
+    .cl-text {
+      font-size: 14px;
+      color: var(--lgrey);
+    }
+
+    /* ════════════════════════════════════════════════
+       FOOTER
+    ════════════════════════════════════════════════ */
+    footer {
+      padding: 22px 80px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    footer p, footer a {
+      font-size: 10.5px;
+      color: var(--grey);
+      letter-spacing: 0.08em;
+      text-decoration: none;
+    }
+    footer a:hover { color: var(--lgrey); }
+
+    /* ════════════════════════════════════════════════
+       RESPONSIVE
+    ════════════════════════════════════════════════ */
+    @media (max-width: 960px) {
+      nav { padding: 0 28px; }
+      .nav-links { display: none; }
+      .hero-content { left: 28px; right: 28px; top: auto; bottom: 60px; transform: none; max-width: 100%; }
+      .hero-overlay { background: linear-gradient(to bottom, rgba(12,12,12,0.3) 0%, rgba(12,12,12,0.85) 70%, rgba(12,12,12,1) 100%); }
+      .hero-overlay::after { display: none; }
+      .s-pad { padding: 80px 28px; }
+      #about { grid-template-columns: 1fr; gap: 48px; }
+      .about-stats { gap: 36px; }
+      .clients-wrap { grid-template-columns: 1fr; gap: 48px; }
+      #work { padding: 80px 0; }
+      .work-head { padding: 0 28px 56px; }
+      .proj-info { grid-template-columns: 1fr; padding: 28px 28px; }
+      .proj-meta { text-align: left; }
+      .proj-dual-imgs { grid-template-columns: 1fr; }
+      .proj-dual-info { grid-template-columns: 1fr; }
+      .proj-dual-info .proj-half { padding: 28px; }
+      #studio { grid-template-columns: 1fr; }
+      .studio-imgs { grid-template-columns: 1fr; }
+      .studio-imgs .span2 { grid-column: 1; }
+      .exp-grid { grid-template-columns: 1fr; gap: 48px; }
+      .edu-grid { grid-template-columns: 1fr; }
+      .contact-inner { grid-template-columns: 1fr; gap: 60px; }
+      footer { padding: 20px 28px; flex-direction: column; gap: 8px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════
+       NAVIGATION
+  ══════════════════════════════════════ -->
+  <nav id="nav">
+    <a href="#hero" class="nav-logo">Marek Brandys</a>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#studio">Studio</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ══════════════════════════════════
+       HERO
+  ══════════════════════════════════════ -->
+  <section id="hero">
+    <img src="assets/images/studio-at-desk.jpg" alt="Marek Brandys — Colorist at the grading station" class="hero-bg">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-rule"></div>
+      <h1>MAREK<br><em>BRANDYS</em></h1>
+      <div class="hero-divider"></div>
+      <p class="hero-subtitle">Colorist &amp; Post Production Specialist</p>
+      <p class="hero-discs">Feature Films &nbsp;·&nbsp; Documentary &nbsp;·&nbsp; Entertainment &nbsp;·&nbsp; Television</p>
+      <p class="hero-years">25+ years of experience in post-production</p>
+      <button class="btn-showreel" id="openShowreel">
+        <span class="play-tri"></span>
+        Watch Showreel
+      </button>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       SHOWREEL MODAL
+  ══════════════════════════════════════ -->
+  <div class="modal-overlay" id="showreelModal">
+    <div class="modal-box">
+      <button class="modal-close" id="closeShowreel">✕ &nbsp;Close</button>
+      <div class="modal-ratio">
+        <iframe id="ytFrame" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       ABOUT
+  ══════════════════════════════════════ -->
+  <section id="about" class="s-pad reveal">
+    <div class="about-left">
+      <p class="s-label">About</p>
+      <div class="s-rule"></div>
+      <h2 class="s-title">Bridging creativity<br>and technology.</h2>
+    </div>
+    <div class="about-right">
+      <div class="about-bio">
+        <p>With over 25 years at the intersection of technology and visual storytelling, Marek Brandys brings technical precision and artistic sensitivity to every project.</p>
+        <p>From digital intermediate workflows for theatrical releases to premium streaming content, he partners with directors and cinematographers to realise their visual vision — ensuring every frame communicates with intention.</p>
+        <p>Based in Warsaw, Marek works across feature films, documentary series, entertainment formats, commercials and broadcast television. His technical background in mechatronics and postgraduate studies in graphic design give him a unique perspective: rigorous in process, refined in aesthetic.</p>
+      </div>
+      <div class="about-stats">
+        <div>
+          <div class="stat-num">25+</div>
+          <div class="stat-label">Years</div>
+        </div>
+        <div>
+          <div class="stat-num">200</div>
+          <div class="stat-label">TV Episodes</div>
+        </div>
+        <div>
+          <div class="stat-num">7</div>
+          <div class="stat-label">Major Clients</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       SELECTED CLIENTS
+  ══════════════════════════════════════ -->
+  <section id="clients" class="s-pad">
+    <div class="clients-wrap">
+      <div>
+        <p class="s-label reveal">Clients</p>
+        <div class="s-rule reveal"></div>
+        <h2 class="s-title reveal">Selected<br>Clients</h2>
+      </div>
+      <div class="clients-grid reveal">
+        <div class="client-item"><p class="client-name">Prime Video</p></div>
+        <div class="client-item"><p class="client-name">TVN Warner Bros. Discovery</p></div>
+        <div class="client-item"><p class="client-name">Endemol Shine Group</p></div>
+        <div class="client-item"><p class="client-name">Fremantle</p></div>
+        <div class="client-item"><p class="client-name">Constantin Entertainment</p></div>
+        <div class="client-item"><p class="client-name">New Wave Studio</p></div>
+        <div class="client-item"><p class="client-name">Black Photon</p></div>
+        <div class="client-item"><p class="client-name">&nbsp;</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       SELECTED WORK
+  ══════════════════════════════════════ -->
+  <section id="work">
+    <div class="work-head reveal">
+      <p class="s-label">Portfolio</p>
+      <div class="s-rule"></div>
+      <h2 class="s-title">Selected Work</h2>
+    </div>
+
+    <!-- ŚWIĘTA NOC -->
+    <article class="project reveal">
+      <div class="proj-img-wrap">
+        <img src="assets/images/swieta-noc-1.jpg" alt="Święta Noc" loading="lazy">
+      </div>
+      <div class="proj-info">
+        <div>
+          <p class="proj-cat">Feature Film · 2024</p>
+          <h3 class="proj-title">Święta Noc</h3>
+          <p class="proj-role">Colorist &amp; Post Production</p>
+        </div>
+        <p class="proj-desc">Complete digital intermediate workflow, colour grading and finishing for theatrical release. End-to-end post-production from rushes to delivery.</p>
+        <p class="proj-meta">DaVinci Resolve Studio<br>HDR + SDR Delivery</p>
+      </div>
+    </article>
+
+    <!-- NIEPOKONANA -->
+    <article class="project reveal">
+      <div class="proj-img-wrap">
+        <img src="assets/images/niepokonana-1.jpg" alt="Niepokonana" loading="lazy">
+      </div>
+      <div class="proj-info">
+        <div>
+          <p class="proj-cat">Mini Documentary Series</p>
+          <h3 class="proj-title">Niepokonana</h3>
+          <p class="proj-role">Colour Grading</p>
+        </div>
+        <p class="proj-desc">Naturalistic, intimate colour treatment preserving the authenticity and emotional truth of the documentary across all episodes.</p>
+        <p class="proj-meta">DaVinci Resolve Studio<br>SDR Delivery</p>
+      </div>
+    </article>
+
+    <!-- THE 50 + LOL — PRIME VIDEO -->
+    <article class="project reveal">
+      <div class="proj-img-wrap proj-dual-imgs">
+        <img src="assets/images/the50.jpg" alt="The 50 — Prime Video" loading="lazy">
+        <img src="assets/images/lol.jpg" alt="LOL — Prime Video" loading="lazy">
+      </div>
+      <div class="proj-dual-info">
+        <div class="proj-half">
+          <p class="proj-cat">Premium Entertainment</p>
+          <h3 class="proj-title">The 50</h3>
+          <p class="proj-role">Colour Grading / Quality Control</p>
+          <p class="proj-desc" style="margin-top:12px; font-size:12px; color:var(--lgrey)">Amazon Prime Video original</p>
+        </div>
+        <div class="proj-half">
+          <p class="proj-cat">Premium Entertainment</p>
+          <h3 class="proj-title">LOL</h3>
+          <p class="proj-role">Colour Grading / Quality Control</p>
+          <p class="proj-desc" style="margin-top:12px; font-size:12px; color:var(--lgrey)">Amazon Prime Video original</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- AFRYKA EXPRESS + BITWA O GOŚCI — TVN -->
+    <article class="project reveal">
+      <div class="proj-img-wrap proj-dual-imgs">
+        <img src="assets/images/afryka.jpg" alt="Afryka Express" loading="lazy">
+        <img src="assets/images/bitwa.jpg" alt="Bitwa o Gości" loading="lazy">
+      </div>
+      <div class="proj-dual-info">
+        <div class="proj-half">
+          <p class="proj-cat">Adventure Series · TVN</p>
+          <h3 class="proj-title">Afryka Express</h3>
+          <p class="proj-role">Colour Grading</p>
+          <p class="proj-desc" style="margin-top:12px; font-size:12px; color:var(--lgrey)">TVN Warner Bros. Discovery</p>
+        </div>
+        <div class="proj-half">
+          <p class="proj-cat">Entertainment Series · TVN</p>
+          <h3 class="proj-title">Bitwa o Gości</h3>
+          <p class="proj-role">Colour Grading</p>
+          <p class="proj-desc" style="margin-top:12px; font-size:12px; color:var(--lgrey)">TVN Warner Bros. Discovery</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- JULIA + DKMS -->
+    <article class="project reveal">
+      <div class="proj-img-wrap proj-dual-imgs">
+        <img src="assets/images/julia.jpg" alt="Julia — TV Series" loading="lazy">
+        <img src="assets/images/studio-resolve.jpg" alt="DKMS Campaign" loading="lazy">
+      </div>
+      <div class="proj-dual-info">
+        <div class="proj-half">
+          <p class="proj-cat">Television · 200 Episodes</p>
+          <h3 class="proj-title">Julia</h3>
+          <p class="proj-role">VFX Project Manager</p>
+          <p class="proj-desc" style="margin-top:12px; font-size:12px; color:var(--lgrey)">Large-scale television production</p>
+        </div>
+        <div class="proj-half">
+          <p class="proj-cat">Commercial</p>
+          <h3 class="proj-title">DKMS Campaign</h3>
+          <p class="proj-role">Colour Grading &amp; Finishing</p>
+          <p class="proj-desc" style="margin-top:12px;">
+            <a href="https://www.youtube.com/watch?v=u-B5OrRwE_s"
+               target="_blank" rel="noopener"
+               style="font-size:12px; color:var(--accent); text-decoration:none; border-bottom:1px solid var(--accent);">
+              Watch on YouTube ↗
+            </a>
+          </p>
+        </div>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- ══════════════════════════════════
+       STUDIO
+  ══════════════════════════════════════ -->
+  <section id="studio" class="s-pad">
+    <div class="studio-imgs reveal">
+      <div class="span2">
+        <img src="assets/images/studio-1.jpg" alt="Grading suite" loading="lazy">
+      </div>
+      <img src="assets/images/studio-at-desk.jpg" alt="Marek Brandys at the grading station" loading="lazy">
+      <img src="assets/images/studio-resolve.jpg" alt="DaVinci Resolve session" loading="lazy">
+    </div>
+    <div class="studio-info reveal">
+      <p class="s-label">Warsaw</p>
+      <div class="s-rule"></div>
+      <h2 class="s-title">Studio &amp;<br>Workflow</h2>
+      <ul class="studio-tools">
+        <li>
+          <div class="tool-dot"></div>
+          <div>
+            <p class="tool-name">DaVinci Resolve Studio</p>
+            <p class="tool-desc">Primary colour grading &amp; digital intermediate platform</p>
+          </div>
+        </li>
+        <li>
+          <div class="tool-dot"></div>
+          <div>
+            <p class="tool-name">Blackmagic Micro Color Panel</p>
+            <p class="tool-desc">Tactile grading control surface</p>
+          </div>
+        </li>
+        <li>
+          <div class="tool-dot"></div>
+          <div>
+            <p class="tool-name">Reference Monitoring</p>
+            <p class="tool-desc">Calibrated reference display pipeline</p>
+          </div>
+        </li>
+        <li>
+          <div class="tool-dot"></div>
+          <div>
+            <p class="tool-name">HDR / SDR Workflows</p>
+            <p class="tool-desc">Dual-delivery finishing — Dolby Vision, HLG, SDR</p>
+          </div>
+        </li>
+        <li>
+          <div class="tool-dot"></div>
+          <div>
+            <p class="tool-name">Remote Collaboration</p>
+            <p class="tool-desc">Secure remote grading sessions with directors &amp; DPs worldwide</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       EXPERIENCE
+  ══════════════════════════════════════ -->
+  <section id="experience" class="s-pad">
+    <p class="s-label reveal">Career</p>
+    <div class="s-rule reveal"></div>
+    <h2 class="s-title reveal">Experience</h2>
+    <div class="exp-grid">
+      <div class="reveal">
+        <p class="exp-big">25<span style="font-size:40px">+</span></p>
+        <p class="exp-big-sub">years in post-production</p>
+      </div>
+      <div class="reveal">
+        <p class="exp-col-head">Disciplines</p>
+        <ul class="exp-list">
+          <li>Colour Grading &amp; Digital Intermediate</li>
+          <li>Post-Production Engineering</li>
+          <li>VFX Supervision &amp; Management</li>
+          <li>Broadcast Workflows</li>
+          <li>Finishing &amp; Mastering</li>
+          <li>Remote Grading</li>
+        </ul>
+      </div>
+      <div class="reveal">
+        <p class="exp-col-head">Formats</p>
+        <ul class="exp-list">
+          <li>Feature Films</li>
+          <li>Documentary Series</li>
+          <li>Premium Entertainment</li>
+          <li>Television</li>
+          <li>Commercials</li>
+          <li>Theatrical Release &amp; Streaming</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       EDUCATION
+  ══════════════════════════════════════ -->
+  <section id="education" class="s-pad">
+    <p class="s-label reveal">Background</p>
+    <div class="s-rule reveal"></div>
+    <h2 class="s-title reveal">Education</h2>
+    <div class="edu-grid">
+      <div class="edu-card reveal">
+        <p class="edu-inst">AGH University of Krakow</p>
+        <p class="edu-degree">Master of Science<br>Mechatronics, Robotics &amp; Automation</p>
+        <p class="edu-year">Engineering · Technology</p>
+      </div>
+      <div class="edu-card reveal">
+        <p class="edu-inst">Polish-Japanese Academy of Information Technology</p>
+        <p class="edu-degree">Postgraduate Studies<br>Graphic Design</p>
+        <p class="edu-year">Visual Arts · Design</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       CONTACT
+  ══════════════════════════════════════ -->
+  <section id="contact" class="s-pad">
+    <img src="assets/images/studio-wide.jpg" alt="" class="contact-bg" loading="lazy">
+    <div class="contact-inner">
+      <div class="reveal">
+        <p class="s-label">Get in Touch</p>
+        <div class="s-rule"></div>
+        <h2 class="s-title">Let's work<br>together.</h2>
+        <p class="contact-tagline">Bridging creativity and technology.</p>
+      </div>
+      <div class="reveal">
+        <ul class="contact-links">
+          <li>
+            <span class="cl-key">Email</span>
+            <a href="mailto:brandysmarek@gmail.com">brandysmarek@gmail.com</a>
+          </li>
+          <li>
+            <span class="cl-key">LinkedIn</span>
+            <a href="https://www.linkedin.com/in/marek-brandys-7a552746/" target="_blank" rel="noopener">marek-brandys</a>
+          </li>
+          <li>
+            <span class="cl-key">Showreel</span>
+            <a href="https://youtu.be/1xAJ10QHUOw" target="_blank" rel="noopener">youtu.be/1xAJ10QHUOw</a>
+          </li>
+          <li>
+            <span class="cl-key">Location</span>
+            <span class="cl-text">Warsaw, Poland</span>
+          </li>
+          <li>
+            <span class="cl-key">Remote</span>
+            <span class="cl-text">Worldwide</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════ -->
+  <footer>
+    <p>© 2025 Marek Brandys. All rights reserved.</p>
+    <p>Warsaw, Poland &nbsp;·&nbsp; Remote Worldwide</p>
+    <a href="mailto:brandysmarek@gmail.com">brandysmarek@gmail.com</a>
+  </footer>
+
+  <!-- ══════════════════════════════════
+       JAVASCRIPT
+  ══════════════════════════════════════ -->
+  <script>
+    // ── Nav scroll behaviour ─────────────────────────────────────
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // ── Showreel modal ────────────────────────────────────────────
+    const modal   = document.getElementById('showreelModal');
+    const ytFrame = document.getElementById('ytFrame');
+    const YT_URL  = 'https://www.youtube.com/embed/1xAJ10QHUOw?autoplay=1&rel=0';
+
+    document.getElementById('openShowreel').addEventListener('click', () => {
+      ytFrame.src = YT_URL;
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+
+    function closeModal() {
+      modal.classList.remove('open');
+      ytFrame.src = '';
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('closeShowreel').addEventListener('click', closeModal);
+    modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+    // ── Scroll reveal ─────────────────────────────────────────────
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    reveals.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
