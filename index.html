@@ -637,6 +637,7 @@
       text-decoration: none;
     }
     footer a:hover { color: var(--lgrey); }
+    .version-tag { color: var(--grey); letter-spacing: 0.03em; }
 
     /* ════════════════════════════════════════════════
        RESPONSIVE
@@ -1037,7 +1038,7 @@
           </li>
           <li>
             <span class="cl-key">Showreel</span>
-            <a href="https://youtu.be/joLazgEjvC0" target="_blank" rel="noopener">youtu.be/1xAJ10QHUOw</a>
+            <a href="https://youtu.be/joLazgEjvC0" target="_blank" rel="noopener">youtu.be/joLazgEjvC0</a>
           </li>
           <li>
             <span class="cl-key">Location</span>
@@ -1056,9 +1057,10 @@
        FOOTER
   ══════════════════════════════════════ -->
   <footer>
-    <p>© 2025 Marek Brandys. All rights reserved.</p>
+    <p>© 2026 Marek Brandys. All rights reserved.</p>
     <p>Warsaw, Poland &nbsp;·&nbsp; Remote Worldwide</p>
     <a href="mailto:brandysmarek@gmail.com">brandysmarek@gmail.com</a>
+    <p class="version-tag">v1.12 &nbsp;·&nbsp; 2026-07-22</p>
   </footer>
 
   <!-- ══════════════════════════════════
@@ -1074,7 +1076,7 @@
     // ── Showreel modal ────────────────────────────────────────────
     const modal   = document.getElementById('showreelModal');
     const ytFrame = document.getElementById('ytFrame');
-    const YT_URL  = 'https://www.youtube.com/embed/1xAJ10QHUOw?autoplay=1&rel=0';
+    const YT_URL  = 'https://www.youtube.com/embed/joLazgEjvC0?autoplay=1&rel=0';
 
     document.getElementById('openShowreel').addEventListener('click', () => {
       ytFrame.src = YT_URL;
