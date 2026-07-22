@@ -118,7 +118,7 @@
       width: 100%; height: 100%;
       object-fit: cover;
       object-position: left center;
-      transform: scale(0.78);
+      transform: scale(0.78) translateX(-20%);
       transform-origin: center center;
       -webkit-mask-image: radial-gradient(
         ellipse 72% 78% at 34% 52%,
@@ -384,6 +384,7 @@
       position: relative;
       line-height: 0;
     }
+    .proj-img-wrap a { display: block; line-height: 0; }
     .proj-img-wrap img {
       width: 100%;
       aspect-ratio: 21/9;
@@ -665,7 +666,7 @@
     ════════════════════════════════════════════════ */
     @media (max-width: 960px) {
       nav { padding: 0 28px; }
-      .nav-burger { display: flex; }
+      .nav-burger { display: flex; order: -1; }
       .nav-links {
         position: fixed;
         top: 64px; left: 0; right: 0; bottom: 0;
@@ -696,9 +697,40 @@
         padding: 18px 0;
         font-size: 13px;
       }
-      .hero-content { left: 28px; right: 28px; top: auto; bottom: 60px; transform: none; max-width: 100%; }
-      .hero-overlay { background: linear-gradient(to bottom, rgba(12,12,12,0.3) 0%, rgba(12,12,12,0.85) 70%, rgba(12,12,12,1) 100%); }
+      #hero {
+        height: auto;
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+      }
+      .hero-bg {
+        position: relative;
+        inset: auto;
+        width: 100%;
+        height: 62vh;
+        min-height: 380px;
+        margin-top: 20px;
+        transform: none;
+        object-position: center 25%;
+        -webkit-mask-image: none;
+        mask-image: none;
+      }
+      .hero-overlay {
+        position: absolute;
+        top: 20px; left: 0; right: 0; bottom: auto;
+        height: 62vh;
+        min-height: 380px;
+        background: linear-gradient(to bottom, rgba(12,12,12,0) 55%, rgba(12,12,12,0.95) 100%);
+      }
       .hero-overlay::after { display: none; }
+      .hero-content {
+        position: relative;
+        left: auto; right: auto; top: auto; bottom: auto;
+        transform: none;
+        margin-top: -130px;
+        max-width: 100%;
+        padding: 40px 28px 64px;
+      }
       .s-pad { padding: 80px 28px; }
       #about { grid-template-columns: 1fr; gap: 48px; }
       .about-stats { gap: 36px; }
@@ -710,6 +742,12 @@
       .proj-dual-imgs { grid-template-columns: 1fr; }
       .proj-dual-info { grid-template-columns: 1fr; }
       .proj-dual-info .proj-half { padding: 28px; }
+      .project { display: flex; flex-direction: column; }
+      .proj-dual-imgs, .proj-dual-info { display: contents; }
+      .proj-dual-imgs > *:nth-child(1) { order: 1; }
+      .proj-dual-info .proj-half:nth-of-type(1) { order: 2; }
+      .proj-dual-imgs > *:nth-child(2) { order: 3; }
+      .proj-dual-info .proj-half:nth-of-type(2) { order: 4; }
       #studio { grid-template-columns: 1fr; }
       .studio-imgs { grid-template-columns: 1fr; }
       .studio-imgs .span2 { grid-column: 1; }
@@ -744,7 +782,7 @@
        HERO
   ══════════════════════════════════════ -->
   <section id="hero">
-    <img src="assets/images/studio-at-desk.jpg" alt="Marek Brandys — Colorist at the grading station" class="hero-bg">
+    <img src="assets/images/hero-main.jpg" alt="Marek Brandys — Colorist at the grading station" class="hero-bg">
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <div class="hero-rule"></div>
@@ -785,11 +823,13 @@
     <!-- ŚWIĘTA NOC -->
     <article class="project reveal">
       <div class="proj-img-wrap">
-        <img src="assets/images/swieta-noc-1.jpg" alt="Święta Noc" loading="lazy">
+        <a href="https://www.youtube.com/watch?v=7tb8IyIbuMM" target="_blank" rel="noopener" aria-label="Watch Święta Noc trailer">
+          <img src="assets/images/swieta-noc-1.jpg" alt="Święta Noc" loading="lazy">
+        </a>
       </div>
       <div class="proj-info">
         <div>
-          <p class="proj-cat">Feature Film · 2024</p>
+          <p class="proj-cat">Feature Film</p>
           <h3 class="proj-title">Święta Noc</h3>
           <p class="proj-role">Colorist &amp; Post Production</p>
         </div>
@@ -805,7 +845,9 @@
     <!-- NIEPOKONANA -->
     <article class="project reveal">
       <div class="proj-img-wrap">
-        <img src="assets/images/niepokonana-1.jpg" alt="Niepokonana" loading="lazy">
+        <a href="https://www.youtube.com/watch?v=5uvBt1Rz33s" target="_blank" rel="noopener" aria-label="Watch Niepokonana on YouTube">
+          <img src="assets/images/niepokonana-1.jpg" alt="Niepokonana" loading="lazy">
+        </a>
       </div>
       <div class="proj-info">
         <div>
@@ -847,8 +889,12 @@
     <!-- AFRYKA EXPRESS + BITWA O GOŚCI — TVN -->
     <article class="project reveal">
       <div class="proj-img-wrap proj-dual-imgs">
-        <img src="assets/images/afryka.jpg" alt="Afryka Express" loading="lazy" style="object-position: left top;">
-        <img src="assets/images/bitwa3.jpg" alt="Bitwa o Gości" loading="lazy" style="object-position: center center;">
+        <a href="https://tvn.pl/programy/afryka_express" target="_blank" rel="noopener" aria-label="Afryka Express on tvn.pl">
+          <img src="assets/images/afryka.jpg" alt="Afryka Express" loading="lazy" style="object-position: left top;">
+        </a>
+        <a href="https://tvn.pl/programy/bitwa-o-gosci" target="_blank" rel="noopener" aria-label="Bitwa o Gości on tvn.pl">
+          <img src="assets/images/bitwa3.jpg" alt="Bitwa o Gości" loading="lazy" style="object-position: center center;">
+        </a>
       </div>
       <div class="proj-dual-info">
         <div class="proj-half">
@@ -878,7 +924,9 @@
     <article class="project reveal">
       <div class="proj-img-wrap proj-dual-imgs">
         <img src="assets/images/julia.jpg" alt="Julia — TV Series" loading="lazy">
-        <img src="assets/images/studio-resolve.jpg" alt="DKMS Campaign" loading="lazy">
+        <a href="https://www.youtube.com/watch?v=u-B5OrRwE_s" target="_blank" rel="noopener" aria-label="Watch DKMS Campaign on YouTube">
+          <img src="assets/images/studio-resolve.jpg" alt="DKMS Campaign" loading="lazy">
+        </a>
       </div>
       <div class="proj-dual-info">
         <div class="proj-half">
@@ -1114,7 +1162,7 @@
     <p>© 2026 Marek Brandys. All rights reserved.</p>
     <p>Warsaw, Poland &nbsp;·&nbsp; Remote Worldwide</p>
     <a href="mailto:brandysmarek@gmail.com">brandysmarek@gmail.com</a>
-    <p class="version-tag">v1.13 &nbsp;·&nbsp; 2026-07-22</p>
+    <p class="version-tag">v1.23 &nbsp;·&nbsp; 2026-07-22</p>
   </footer>
 
   <!-- ══════════════════════════════════
